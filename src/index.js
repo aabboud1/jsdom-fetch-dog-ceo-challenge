@@ -45,8 +45,11 @@ function listBreed(breeds) {
 
 function dropList() {
     let value = document.getElementById('breed-dropdown').value;
-    let value1 = document.getElementById('breed-dropdown').children;
-    value.addEventListener('submit', console.log(value))
+    let value1 = document.querySelectorAll('option');
+    value1.forEach(value => {
+    value1.addEventListener('click', (event) => {
+        console.log(event)
+    })})
     // value.onchange = 'good'
 }
 
