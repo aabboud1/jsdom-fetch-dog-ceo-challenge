@@ -44,12 +44,27 @@ function listBreed(breeds) {
 }
 
 function dropList() {
-    let value = document.getElementById('breed-dropdown').value;
+    let menu = document.getElementById('breed-dropdown');
     let value1 = document.querySelectorAll('option');
-    value1.forEach(value => {
-    value1.addEventListener('click', (event) => {
-        console.log(event)
-    })})
+    const listOfBreeds = document.querySelectorAll('#dog-breeds')
+
+    menu.onchange = () => {
+        document.querySelectorAll('#dog-breeds')["0"].innerHTML = ""
+        console.log(listOfBreeds["0"])
+        let choice = menu.value
+        debugger
+        console.log(dogApi(breedUrl, listBreed))
+        // dogApi(breedUrl, listBreed).forEach((item) => {
+            // console.log(item)
+            // if (choice === )
+        // })
+    }
+    // value1.forEach(option => {
+    //     console.log(option.value)
+    //     option.addEventListener('click', (event) => {
+    //         console.log(event)
+    //     })
+    // })
     // value.onchange = 'good'
 }
 
