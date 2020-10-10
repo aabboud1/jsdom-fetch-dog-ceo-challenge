@@ -45,20 +45,24 @@ function listBreed(breeds) {
 
 function dropList() {
     let menu = document.getElementById('breed-dropdown');
-    let value1 = document.querySelectorAll('option');
+    // let value1 = document.querySelectorAll('option');
     const listOfBreeds = document.querySelectorAll('#dog-breeds')
-
     menu.onchange = () => {
         document.querySelectorAll('#dog-breeds')["0"].innerHTML = ""
-        console.log(listOfBreeds["0"])
         let choice = menu.value
-        debugger
-        console.log(dogApi(breedUrl, listBreed))
-        // dogApi(breedUrl, listBreed).forEach((item) => {
-            // console.log(item)
-            // if (choice === )
-        // })
+        fetch(breedUrl)
+        .then(res => res.json())
+        .then(data => {
+          for(breed in data.message) {
+            if (choice === breed[0]) {
+              breedLi(breed)
+            } else {
+              continue
+            }
+          }
+        })
     }
+    
     // value1.forEach(option => {
     //     console.log(option.value)
     //     option.addEventListener('click', (event) => {
